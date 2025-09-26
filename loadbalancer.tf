@@ -23,7 +23,14 @@ resource "aws_lb_listener" "hello_world" {
   }
 }
 
+output "tg-arn" {
+  description = "Load balancer DNS arn"
+  value       = aws_lb_target_group.web-tg.arn
+
+}
+
 output "lb_dns_name" {
   description = "Load balancer DNS name"
   value       = aws_lb.lb.dns_name
+
 }
