@@ -6,7 +6,7 @@ on:
       - main
 
 env:
-  # verbosity setting for Terraform logs
+  # verbosity setting for Terraform logs 
   TF_LOG: INFO
   AWS_REGION: us-east-1
 
