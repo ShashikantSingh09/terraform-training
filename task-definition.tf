@@ -31,7 +31,7 @@ resource "aws_ecs_task_definition" "web-td" {
 
   container_definitions = jsonencode([{
     name         = "web-app",
-    image        = locals.terraform.image,
+    image        = local.terraform.image,
     essential    = true,
     portMappings = [{ containerPort = 3000, hostPort = 3000 }],
 
