@@ -101,14 +101,14 @@ resource "aws_route_table_association" "private" {
   route_table_id = aws_route_table.private.id
 }
 
-# data "aws_secretsmanager_secret" "terraform" {
-#   name = "terraform"
-# }
+data "aws_secretsmanager_secret" "terraform" {
+  name = "terrafrom"
+}
 
-# data "aws_secretsmanager_secret_version" "terraform_tfvars" {
-#   secret_id = data.aws_secretsmanager_secret.terraform.id
-# }
+data "aws_secretsmanager_secret_version" "terraform_tfvars" {
+  secret_id = data.aws_secretsmanager_secret.terraform.id
+}
 
-# locals {
-#   terraform = jsondecode(data.aws_secretsmanager_secret_version.terraform_tfvars.secret_string)
-# }
+locals {
+  terraform = jsondecode(data.aws_secretsmanager_secret_version.terraform_tfvars.secret_string)
+}
