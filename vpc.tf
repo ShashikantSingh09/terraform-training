@@ -102,7 +102,7 @@ resource "aws_route_table_association" "private" {
 }
 
 data "aws_secretsmanager_secret" "terraform" {
-  name = "terrafrom"
+  name = "terraform"
 }
 
 data "aws_secretsmanager_secret_version" "terraform_tfvars" {
@@ -111,4 +111,5 @@ data "aws_secretsmanager_secret_version" "terraform_tfvars" {
 
 locals {
   terraform = jsondecode(data.aws_secretsmanager_secret_version.terraform_tfvars.secret_string)
+  terraform_key = data.aws_secretsmanager_secret_version.terraform_tfvars.secret_string
 }
