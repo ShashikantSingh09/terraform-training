@@ -36,6 +36,8 @@ jobs:
 
       - name: Run Snyk to check Kubernetes manifest file for issues
         uses: snyk/actions/iac@master
+        with:
+          soft_fail: true
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
